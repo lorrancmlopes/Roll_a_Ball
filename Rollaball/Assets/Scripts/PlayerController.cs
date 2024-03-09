@@ -8,7 +8,9 @@ public class PlayerController : MonoBehaviour
 {
     public float speed = 0;
     public TextMeshProUGUI countText;
-    public GameObject winTextObject;
+    //public GameObject winTextObject;
+    public Transform respawnPoint;
+    public MenuController menuController;
     private Rigidbody rb;
     private int count;
     private float movementX;
@@ -21,7 +23,16 @@ public class PlayerController : MonoBehaviour
         count = 0;
         
         SetCountText();
-        winTextObject.SetActive(false);
+        //winTextObject.SetActive(false);
+    }
+
+    //reference: 
+    private void Update()
+    {
+        if (transform.position.y < -10)
+        {
+            Respawn();
+        }
     }
 
     void OnMove(InputValue movementValue)
@@ -37,7 +48,8 @@ public class PlayerController : MonoBehaviour
         countText.text = "Count: " + count.ToString();
         if (count >= 12)
         {
-            winTextObject.SetActive(true);
+            //winTextObject.SetActive(true);
+            menuController.WinGame();
         }
     }
     void FixedUpdate()
@@ -58,4 +70,32 @@ public class PlayerController : MonoBehaviour
             SetCountText();
         }
     }
+
+
+    //reference: 
+    void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy"))
+        {
+            //Eespawn();
+            EndGame();
+        }
+    }
+
+    void Respawn()
+    {
+        rb.velocity = Vector3.zero;
+        rb.angularVelocity = Vector3.zero;
+        rb.Sleep();
+        transform.position = respawnPoint.position;
+    }
+
+    void EndGame()
+    {
+        menuController.LoseGame();
+        gameObject.SetActive(false);
+    }
+
+
+    // end of reference
 }
