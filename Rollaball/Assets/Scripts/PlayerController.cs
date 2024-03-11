@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     //public GameObject winTextObject;
     public Transform respawnPoint;
     public MenuController menuController;
+    private AudioSource pop;
     private Rigidbody rb;
     private int count;
     private float movementX;
@@ -21,6 +22,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         count = 0;
+        pop = GetComponent<AudioSource>();
         
         SetCountText();
         //winTextObject.SetActive(false);
@@ -43,12 +45,25 @@ public class PlayerController : MonoBehaviour
        movementY = movementVector.y;
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("PickUp"))
+        {
+            pop.Play();
+            other.gameObject.SetActive(false);
+            count = count + 1;
+            
+            SetCountText();
+            
+        }
+    }
     void SetCountText()
     {
         countText.text = "Count: " + count.ToString();
         if (count >= 12)
         {
             //winTextObject.SetActive(true);
+            pop.Play();
             menuController.WinGame();
         }
     }
@@ -60,16 +75,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.CompareTag("PickUp"))
-        {
-            other.gameObject.SetActive(false);
-            count = count + 1;
-            
-            SetCountText();
-        }
-    }
+    
 
 
     //reference: 
