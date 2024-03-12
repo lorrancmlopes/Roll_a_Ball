@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
-            //Eespawn();
+            //Respawn();
             EndGame();
         }
     }
@@ -99,7 +99,7 @@ public class PlayerController : MonoBehaviour
     void EndGame()
     {
         menuController.LoseGame();
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
     }
 
 
