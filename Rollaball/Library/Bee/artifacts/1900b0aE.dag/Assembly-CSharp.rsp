@@ -372,6 +372,7 @@
 "Assets/Scripts/Menu Controller.cs"
 "Assets/Scripts/PlayerController.cs"
 "Assets/Scripts/Rotator.cs"
+"Assets/TeKniKo_Free/Power_Ups/Scripts/ObjectBounce.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 

@@ -26,7 +26,6 @@ public class CountDown : MonoBehaviour
             //if the remaining time is less than or equal to 0, stop the countdown
             remainingTime = 0;
             //GameOver();
-            countDownText.color = Color.red;
             menuController.TimeFinished();
             playerController.gameObject.SetActive(false);
 
@@ -35,6 +34,11 @@ public class CountDown : MonoBehaviour
         {
             //decrease the remaining time by 1 second
             remainingTime -= Time.deltaTime;
+            // if time remaining is less than 6, set the color to red
+            if (remainingTime < 6)
+            {
+                countDownText.color = Color.red;
+            }
             int minutes = (int)remainingTime / 60;
             int seconds = (int)remainingTime % 60;
             countDownText.text = minutes.ToString("00") + ":" + seconds.ToString("00");
