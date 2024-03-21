@@ -45,6 +45,12 @@ public class MenuController : MonoBehaviour
         Application.Quit();
     }
 
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    
+
     public void LoseGame()
     {
         endPanel.SetActive(true);
