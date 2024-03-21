@@ -7,4 +7,4 @@ This project is based on the following contents:
 
 You can play this game <a href="https://play.unity.com/mg/other/webgl-builds-396895">here.
 
-<p align="center"><img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExcXVxbmZxbGJ6N3NhZzZoNHhrODVueW9nazY1eDc4NHRyMGhpdWJlYiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/tlznbBRkF62vr8SujG/source.gif'></img></p>
+<p align="center"><img src='https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExN3ZrcDJtM2dzM3YyOGVrYTloaWR4OGRjZmM3Z3oydmhtbDc3cmJ6diZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/0qtyQzixsiaJaLe3j0/source.gif'></img></p>
